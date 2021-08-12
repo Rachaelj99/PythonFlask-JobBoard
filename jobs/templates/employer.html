@@ -1,79 +1,41 @@
 {% extends "layout.html" %}
 {% block content %}
+
+  <div>
+    <h1>{{ employer['name'] }}</h1>
+    <div class="description">
+      <p>{{ employer['description'] }}
+    </div>
+  </div>
+
   <h2>Jobs</h2>
+  {{ show_jobs(jobs) }}
 
   <h2>Reviews</h2>
-    {# TODO: Remove comment and add for loop
-      {% %}
-    #}
+    {% for review in reviews %}
     <div class="box">
       <article class="media">
         <div class="media-left">
+          {% for _ in range(0, review['rating']): %}
+            <span class="fa fa-star checked"></span>
+          {% endfor %}
         </div>
         <div class="media-content">
           <div class="content">
+            <p>
+              <strong>{{ review['title'] }}</strong>
+              <small>{{ review['status'] }}</small>
+              <small>{{ review['date'] }}</small>
+              {{ review['review'] }}
+            </p>
           </div>
         </div>
       </article>
     </div>
-    {# TODO: Remove comment and end for loop
-      {% %}
-    #}
+      {% endfor %}
   <div class="columns">
     <div class="column">
       <a class="button is-info is-pulled-right">Create Review</a>
     </div>
   </div>
-{% endblock %}
-
-<!-- templates/review.html -->
-{% block content %}
-  <h1>New Review</h1>
-  <form method="post">
-    <div class="field">
-      <label class="label">Job Title</label>
-      <div class="control">
-        <input class="input" type="text" name="title" id="title" required>
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Rating</label>
-      <div class="control">
-        <div class="select">
-          <select name="rating" id="rating">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Review</label>
-      <div class="control">
-        <textarea class="textarea" name="review" id="review" required></textarea>
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Employment Status</label>
-      <div class="control">
-        <div class="select">
-          <select name="status" id="status">
-            <option value="former">Former</option>
-            <option value="current">Current</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="field is-grouped">
-      <div class="control">
-        <button class="button is-link">Submit</button>
-      </div>
-      <div class="control">
-        <a class="button is-text">Cancel</a>
-      </div>
-    </div>
-  </form>
 {% endblock %}

@@ -46,7 +46,7 @@ Every time you want to check your work locally you can type that command, and it
 
 ### Previewing Your Work
 
-You can preview your work by running `flask run` in the root of your fork and then visit`http://localhost:5000` in your browser. ON Windows, run 
-'''
+You can preview your work by running `flask run` in the root of your fork and then visit`http://localhost:5000` in your browser. On Windows, run 
+```
 python -m flask run
-'''
+```

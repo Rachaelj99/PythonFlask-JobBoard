@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends "layout.html" %}
 
 {% block content %}
   <h1>New Review</h1>
@@ -45,7 +45,7 @@
         <button class="button is-link">Submit</button>
       </div>
       <div class="control">
-        <a class="button is-text">Cancel</a>
+        <a href="{{ url_for('employer', employer_id=employer_id)}}"class="button is-text">Cancel</a>
       </div>
     </div>
   </form>
